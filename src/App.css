@@ -21,3 +21,39 @@
   flex-direction: row;
   gap: 10px;
 }
+.navbar-list{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 15px;
+  align-items: center;
+  color: white;
+}
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.footer-links{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+
+}
+.footer-links a{
+  text-decoration: none;
+  color: white;
+}
+.footer-links a:hover{
+  cursor: pointer;
+}
+.green{
+ color: green;
+}
+.white{
+  color: white;
+}

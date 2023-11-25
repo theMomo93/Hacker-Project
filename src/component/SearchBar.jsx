@@ -35,6 +35,7 @@ export function SearchBar() {
         value={selectedTag}
         onChange={(e) => setSelectedTag(e.target.value)}
       >
+        <option value="all"></option>
         <option value="story">Story</option>
         <option value="comment">Comment</option>
         <option value="user">User</option>
