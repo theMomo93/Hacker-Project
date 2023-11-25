@@ -1,4 +1,5 @@
 import React from 'react'
+import { SearchBar } from './SearchBar'
 import { NavLink } from 'react-router-dom'
 
 export function Navbar() {
@@ -16,7 +17,7 @@ export function Navbar() {
          <NavLink className={({ isActive }) => (isActive ? 'green' : 'white')}to="/submit" >Submit</NavLink><p>|</p>
         </div>
         
-      
+        <SearchBar/>
     </div>
   )
 }

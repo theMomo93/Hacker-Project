@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 export function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
-  const [selectedTag, setSelectedTag] = useState('');
   const [searchButtonClicked, setSearchButtonClicked] = useState(false);
   const [searchResults, setSearchResults] = useState({});
+  const navigate = useNavigate(); // new hook, we havent learned yet but essencily help us to link something from one page to another
 
   const fetchData = async () => {
     try {
       const response = await fetch(
-        `https://hn.algolia.com/api/v1/search?query=${searchInput}&tags=${selectedTag}`
+        `https://hn.algolia.com/api/v1/search?query=${searchInput}`
       );
       const data = await response.json();
       setSearchResults(data);
+
+      navigate('/search-results', {state:{searchResults: data}});
     } catch (error) {
       console.log('Error fetching data: ', error);
     }
@@ -24,34 +27,23 @@ export function SearchBar() {
 
       setSearchButtonClicked(false);
     }
-  }, [searchInput, selectedTag, searchButtonClicked]);
+  }, [searchInput, searchButtonClicked]);
 
   return (
-    <div>
-      <p>Search Bar</p>
+    <div className='searchBar'>
       <input
         type="text"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
       <button onClick={() => setSearchButtonClicked(true)}>Search</button>
-      <select
-        name="tags"
-        value={selectedTag}
-        onChange={(e) => setSelectedTag(e.target.value)}
-      >
-        <option value="all"></option>
-        <option value="story">Story</option>
-        <option value="comment">Comment</option>
-        <option value="user">User</option>
-      </select>
-      {searchResults.hits && (
+      {/*     {searchResults.hits && (
         <ul>
-          {searchResults.hits.map((hit) => (
-            <li key={hit.objectID}>{hit.title}</li>
-          ))}
-        </ul>
-      )}
+        {searchResults.hits.map((hit) => (
+          <li key={hit.objectID}>{hit.title}</li>
+        ))}
+      </ul>
+        )}*/}
     </div>
   );
 }

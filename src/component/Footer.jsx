@@ -1,12 +1,13 @@
 import React from 'react'
-import { SearchBar } from './SearchBar'
+
 
 
 
 
 export function Footer() {
   return (
-
+    <>
+    <hr className='divider'/>
     <div className='footer-container'>
         <br />
         <div className='footer-links'>
@@ -19,9 +20,10 @@ export function Footer() {
         <a href= "">Contact</a> 
         </div>
         <div className='searchBar-footer'>
-            <SearchBar/>
+
         </div>
        
     </div>
+    </>
   )
 }
