@@ -21,9 +21,9 @@ export function New() {
 
   return (
     <div>
-  <div>
+ 
 
-  </div>
+  
     <div className='article-container'>
         
         <ol className='list-container'>
