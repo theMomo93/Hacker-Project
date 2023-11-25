@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from '../component/Navbar';
+
 
 
 export function HomePage() {
@@ -8,7 +8,7 @@ export function HomePage() {
   useEffect(() => {
     async function getData() {
       try {
-        const response = await fetch('https://hn.algolia.com/api/v1/search?query=react');
+        const response = await fetch('https://hn.algolia.com/api/v1/search?query=');
         const data = await response.json();
         setNews(data.hits);
       } catch (error) {
