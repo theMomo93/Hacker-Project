@@ -1,0 +1,68 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+div.card{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: auto;
+  margin-bottom: 3%;
+
+}
+.cardContainer{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+
+  
+}
+nav{
+  background-color: #888;
+  width: 100%;
+  padding: 20px;
+}
+.nav-container{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+  padding-top: 0;
+}
+li{
+  font-size: 30px;
+  
+}
+li a {
+  color: rgb(91, 88, 159);
+}
+li a:hover{
+  color:rgb(231, 231, 85);
+}
+div a {
+  color: rgb(91, 88, 159);
+}
+div a:hover {
+  color:rgb(231, 231, 85);
+}
+.greeting{
+  margin-bottom: 10%;
+}
+.footer-container{
+  background-color: #888;
+  padding: 10px;
+  width: 100%;
+}
