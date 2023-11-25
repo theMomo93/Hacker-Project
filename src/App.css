@@ -19,17 +19,19 @@
 .article-container{
   display: flex;
   text-align: left;
-  
+   
 
 }
 .list-container{
   display: flex;
   flex-direction: column;
+  line-height: 8px;
 }
 .list-items{
   display: flex;
   flex-direction: row;
   gap: 10px;
+  line-height: 15px;
 }
 .navbar-list{
   list-style: none;
@@ -69,4 +71,21 @@
 }
 .divider{
   width: 50dvw;
+}
+
+.list-results{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+li{
+  font-size: 20px;
+  line-height: 8px;
+}
+p{
+  font-size: 11px;
+}
+.loading{
+  
 }
