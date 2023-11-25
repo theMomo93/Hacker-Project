@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Navbar } from '../component/Navbar';
+
 
 export function HomePage() {
   const [news, setNews] = useState([]);
@@ -15,13 +17,31 @@ export function HomePage() {
     }
 
     getData();
-  }, []);
+  }, [news]);
 
   return (
     <div>
-      {news.map((item) => (
-        <div key={item.objectID}>{item.title}</div>
+  <div>
+    <Navbar/>
+  </div>
+    <div className='article-container'>
+        
+        <ol className='list-container'>
+
+        {news.map((item) => (
+        <li key={item.id}>{item.title}
+        <div className='list-items'>
+        <p>Hide </p>
+        <p>|</p>
+        <p key={item.id}>  {item.num_comments} comments </p>
+        <p>|</p>
+        </div>
+        </li>
       ))}
+
+      </ol>
+      
+    </div>
     </div>
   );
 }
