@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 export function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
-  const [selectedTag, setSelectedTag] = useState('story');
+  const [selectedTag, setSelectedTag] = useState('');
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false);
   const [searchResults, setSearchResults] = useState({});
 
   const fetchData = async () => {
@@ -18,8 +19,12 @@ export function SearchBar() {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [searchInput, selectedTag]);
+    if (searchButtonClicked) {
+      fetchData();       // Reset the search button state after fetching data
+
+      setSearchButtonClicked(false);
+    }
+  }, [searchInput, selectedTag, searchButtonClicked]);
 
   return (
     <div>
@@ -29,7 +34,7 @@ export function SearchBar() {
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
-      <button onClick={() => fetchData()}>Search</button>
+      <button onClick={() => setSearchButtonClicked(true)}>Search</button>
       <select
         name="tags"
         value={selectedTag}
