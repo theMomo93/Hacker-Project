@@ -18,10 +18,10 @@ export function HomePage() {
   }, []);
 
   return (
-    <div>
-      {news.map((item) => (
-        <div key={item.objectID}>{item.title}</div>
+    <ol>
+     {news.map((item) => (
+        <li key={item.objectID}>{item.title}</li>
       ))}
-    </div>
+    </ol>
   );
 }
