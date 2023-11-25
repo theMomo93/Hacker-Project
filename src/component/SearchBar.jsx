@@ -46,11 +46,13 @@ export function SearchBar() {
         <option value="user">User</option>
       </select>
       {searchResults.hits && (
-        <ul>
+        <div className='search-results'>
+        <ul className='list-results'>
           {searchResults.hits.map((hit) => (
             <li key={hit.objectID}>{hit.title}</li>
           ))}
         </ul>
+        </div>
       )}
     </div>
   );

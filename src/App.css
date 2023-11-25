@@ -57,3 +57,10 @@
 .white{
   color: white;
 }
+
+.list-results{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
