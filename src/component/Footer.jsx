@@ -6,7 +6,7 @@ import React from 'react'
 
 export function Footer() {
   return (
-    <>
+    <div className='footer'>
     <hr className='divider'/>
     <div className='footer-container'>
         <br />
@@ -24,6 +24,6 @@ export function Footer() {
         </div>
        
     </div>
-    </>
+    </div>
   )
 }
