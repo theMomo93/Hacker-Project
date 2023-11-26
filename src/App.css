@@ -93,3 +93,17 @@ p{
   color: green;
   cursor: pointer;
 }
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+input{
+  width: 150px;
+ 
+}
+.past-list-items{
+  line-height: 25px;
+}
+
