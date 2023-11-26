@@ -86,6 +86,10 @@ li{
 p{
   font-size: 11px;
 }
-.loading{
-  
+.homePage-titles{
+  color: white;
+}
+.homePage-titles:hover{
+  color: green;
+  cursor: pointer;
 }

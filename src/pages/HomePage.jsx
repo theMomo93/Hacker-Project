@@ -37,7 +37,9 @@ export function HomePage() {
 
             return (
               <li key={item.id}>
-                {item.title}
+                <a className='homePage-titles' href={item._highlightResult?.url?.value || '#'} target="_blank" rel="noopener noreferrer">
+                 {item.title}
+                   </a>
                 <div className='list-items'>
                   <p key={item.id}>{item.points} points </p>
                   <p>|</p>
