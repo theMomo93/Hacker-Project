@@ -1,11 +1,15 @@
 #root {
-  width: 100hv;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100dvw;
+  margin: 0;
+  min-height: 100dvh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 .navbar-elements{
+  margin: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -72,7 +76,15 @@ text-decoration: underline;
   align-items: center;
   color: white;
 }
+.footer{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  bottom: 0;
+  align-items: center;
 
+
+}
 .footer-container{
   display: flex;
   flex-direction: column;
