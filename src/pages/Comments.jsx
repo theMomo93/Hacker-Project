@@ -58,7 +58,7 @@ export function Comments() {
                     <p key={item.story_id}> {hoursDifference.toFixed(0)} hours ago |</p>
                     
                     <p key={item.story_id}>
-                      <a  href={item._highlightResult?.story_url || '#'} target="_blank" rel="noopener noreferrer">
+                      <a href={item.story_url || '#'} target="_blank" rel="noopener noreferrer">
                         {item.story_title}
                       </a>
                     </p>

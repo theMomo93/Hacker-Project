@@ -45,7 +45,7 @@ export function Past() {
             value={start}
             onChange={(e) => setStart(e.target.value)}
             placeholder="start"
-            pattern="\d{4}-\d{2}-\d{2}" // Pattern for yyyy-mm-dd
+            pattern="\d{4}-\d{2}-\d{2}" // Pattern for yyyy-mm-dd from chatGPT of course
           />
           <button onClick={handleSearch}>Search</button>
 
