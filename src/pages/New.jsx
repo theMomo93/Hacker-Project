@@ -3,13 +3,14 @@ import React, { useState, useEffect } from 'react';
 export function New() {
   const [current, setCurrent] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
+const [page, setPage] =useState(0);
 
   useEffect(() => {
     async function getData() {
       try {
         const response = await fetch('http://hn.algolia.com/api/v1/search_by_date?tags=story');
         const data = await response.json();
-        setCurrent(data.hits);
+        setCurrent((prevCurrent)=>[...prevCurrent, ...data.hits]);
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -18,8 +19,11 @@ export function New() {
     }
 
     getData();
-  }, []); // Empty dependency array to run only once when the component mounts
+  }, [page]); // Empty dependency array to run only once when the component mounts
 
+  const handleLoadMore = () => {
+    setPage((prevPage)=>prevPage +1)
+  }
   return (
     <div>
       {loading ? (
@@ -55,6 +59,8 @@ export function New() {
                 </li>
               );
             })}
+        <button className='loadMore-button' onClick={handleLoadMore}>Load More...</button>
+
           </ol>
         </div>
       )}
