@@ -27,11 +27,41 @@
   flex-direction: column;
   line-height: 8px;
 }
-.list-items{
+.list-items, .comments-items, .past-items{
   display: flex;
   flex-direction: row;
   gap: 10px;
   line-height: 15px;
+  opacity: 0.75;
+  
+}
+.list-items p:hover{
+  cursor: pointer;
+text-decoration: underline;
+}
+.comments-container{
+  width: 70%;
+}
+.comments-items{
+  margin-bottom: 14px;
+  opacity: 0.75;
+}
+.comments-items p:hover{
+cursor: pointer;
+text-decoration: underline;
+}
+.comments-items a{
+  color: white;
+}
+.comments-items a:hover{
+  color: green;
+}
+.past-items p:hover{
+  cursor: pointer;
+text-decoration: underline;
+}
+.past-list-items a{
+  color: white;
 }
 .navbar-list{
   list-style: none;
@@ -86,10 +116,14 @@ li{
 p{
   font-size: 11px;
 }
-.homePage-titles{
+.homePage-titles, .comments-titles{
   color: white;
 }
 .homePage-titles:hover{
+  color: green;
+  cursor: pointer;
+}
+.past-list-items a:hover{
   color: green;
   cursor: pointer;
 }
@@ -103,7 +137,11 @@ input{
   width: 150px;
  
 }
-.past-list-items{
+.comments-titles{
   line-height: 25px;
+  font-size: 16px;
+  text-align: left;
 }
-
+.loading{
+  color: rgb(18, 187, 35);
+}

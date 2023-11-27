@@ -8,7 +8,7 @@ import { New } from './pages/New';
 import SearchResults from './pages/SearchResults';
 import { Submit } from './pages/Submit';
 import { Past } from './pages/Past';
-
+import { Comments } from './pages/Comments';
 
 
 function Router() {
@@ -21,6 +21,7 @@ function Router() {
         <Route path="/new" element={<New/>}/>
         <Route path="/submit" element={<Submit/>}/>
         <Route path="/past" element={<Past/>}/>
+        <Route path="/comments" element={<Comments/>}/>
         <Route path="SearchResults" element={<SearchResults/>}/>
       </Routes>
       <Footer/>

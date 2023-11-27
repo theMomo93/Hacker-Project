@@ -34,63 +34,72 @@ export function Past() {
 
   return (
     <div>
-      <br />
-      <input
-        type="date"
-        value={start}
-        onChange={(e) => setStart(e.target.value)}
-        placeholder="start"
-        pattern="\d{4}-\d{2}-\d{2}" // Pattern for yyyy-mm-dd
-      />
-      <button onClick={handleSearch}>Search</button>
-      
-      {buttonClicked && (
-        loading ? (
-          <h1 className="loading">PAGE LOADING ...</h1>
-        ) : (
-          past && past.hits && (
-            <div className='article-container'>
-              <ol className="list-container">
-                {past.hits.map((item) => {
-                  // Check if item.title is not empty
-                  if (!item.title) {
-                    return null; // Skip rendering if title is empty
-                  }
+      {loading ? (
+        // Show loading message or spinner
+        <h1 className="loading">PAGE LOADING ...</h1>
+      ) : (
+        <>
+          <br />
+          <input
+            type="date"
+            value={start}
+            onChange={(e) => setStart(e.target.value)}
+            placeholder="start"
+            pattern="\d{4}-\d{2}-\d{2}" // Pattern for yyyy-mm-dd
+          />
+          <button onClick={handleSearch}>Search</button>
 
-                  // Calculations inside the loop
-                  const createdAtDate = new Date(item.created_at);
-                  const currentDate = new Date();
-                  const timeDifference = currentDate - createdAtDate;
-                  const hoursDifference = timeDifference / (1000 * 60 * 60);
+          {buttonClicked && (
+            <>
+              {loading ? (
+                <h1 className="loading">PAGE LOADING ...</h1>
+              ) : (
+                past && past.hits && (
+                  <div className="article-container">
+                    <ol className="list-container">
+                      {past.hits.map((item) => {
+                        // Check if item.title is not empty
+                        if (!item.title) {
+                          return null; // Skip rendering if title is empty
+                        }
 
-                  return (
-                    <li className="past-list-items" key={item.objectID}>
-                      {item.url ? (
-                        <a href={item.url} target="_blank" rel="noopener noreferrer">
-                          {item.title}
-                        </a>
-                      ) : (
-                        <span>{item.title}</span>
-                      )}
-                      <div className='list-items'>
-                        <p key={item.objectID}>{item.points} points </p>
-                        <p>|</p>
-                        <p key={item.objectID}> {item.author}</p>
-                        <p>|</p>
-                        <p key={item.objectID}>{hoursDifference.toFixed(0)} hours ago</p>
-                        <p>|</p>
-                        <p>Hide </p>
-                        <p>|</p>
-                        <p key={item.objectID}> {item.num_comments} Comments</p>
-                        <p>|</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ol>
-            </div>
-          )
-        )
+                        // Calculations inside the loop
+                        const createdAtDate = new Date(item.created_at);
+                        const currentDate = new Date();
+                        const timeDifference = currentDate - createdAtDate;
+                        const hoursDifference = timeDifference / (1000 * 60 * 60);
+
+                        return (
+                          <li className="past-list-items" key={item.objectID}>
+                            {item.url ? (
+                              <a href={item.url} target="_blank" rel="noopener noreferrer">
+                                {item.title}
+                              </a>
+                            ) : (
+                              <span>{item.title}</span>
+                            )}
+                            <div className="past-items">
+                              <p key={item.objectID}>{item.points} points </p>
+                              <p>|</p>
+                              <p key={item.objectID}> {item.author}</p>
+                              <p>|</p>
+                              <p key={item.objectID}>{hoursDifference.toFixed(0)} hours ago</p>
+                              <p>|</p>
+                              <p>Hide </p>
+                              <p>|</p>
+                              <p key={item.objectID}> {item.num_comments} Comments</p>
+                              <p>|</p>
+                            </div>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </div>
+                )
+              )}
+            </>
+          )}
+        </>
       )}
     </div>
   );
