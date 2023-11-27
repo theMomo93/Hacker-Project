@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 export function Comments() {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(0);   //for creating Load More button
 
   const convertHtmlEntities = (htmlString) => {
     const parser = new DOMParser();
@@ -26,7 +26,7 @@ export function Comments() {
         // Sort the filtered comments by updated_at
         const sortedComments = currentComments.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-        setComments((prevComments) => [...prevComments, ...sortedComments]);
+        setComments((prevComments) => [...prevComments, ...sortedComments]); //this loads all  comments and sorted comments with ... dots
         setLoading(false);
       } catch (error) {
         console.log('Error fetching data:', error);
@@ -34,9 +34,9 @@ export function Comments() {
     }
 
     getData();
-  }, [page]);
+  }, [page]); // runs on change(click)
 
-  const handleLoadMore = () => {
+  const handleLoadMore = () => { // that I had to google but set the page to page+1 so it doesnt repeat
     setPage((prevPage) => prevPage + 1);
   };
 
@@ -71,7 +71,7 @@ export function Comments() {
                 </li>
               );
             })}
-            <button className='loadMore-button' onClick={handleLoadMore}>Load More...</button>
+            <button className='loadMore-button' onClick={handleLoadMore}>Load More...</button> {/*THe button and function that handles the click*/}
           </ol>
         </div>
       )}
