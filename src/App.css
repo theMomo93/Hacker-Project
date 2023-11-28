@@ -23,6 +23,7 @@
 .article-container{
   display: flex;
   text-align: left;
+  min-height: 70dvh;
    
 
 }
