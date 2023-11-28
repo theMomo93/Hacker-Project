@@ -52,7 +52,31 @@ export function Comments() {
               const currentDate = new Date();
               const timeDifference = currentDate - createdAtDate;
               const hoursDifference = timeDifference / (1000 * 60 * 60);
-
+              let currentTime
+              let dating
+              if( hoursDifference < 1 ){
+                  currentTime = hoursDifference
+                  dating = "Hour"
+              }
+              else if( hoursDifference <= 24 && hoursDifference > 1){
+                  currentTime = hoursDifference
+                  dating = "Hours"
+              }
+              else if (hoursDifference < 168){
+                  currentTime = hoursDifference / 24
+                  dating = "Days"
+              }
+              else if(hoursDifference >= 168  && hoursDifference < 730 ){
+                 currentTime = hoursDifference / 168 // this defines weeks
+                  dating = "Weeks"
+              } else if ( hoursDifference > 730 && hoursDifference < 8760){
+                  currentTime = hoursDifference / 730 // this defines months
+                  dating = "Months"
+              }
+              else if (hoursDifference >= 8760 ){
+                  currentTime = hoursDifference / 8760;
+                  dating = "Years"
+              }
               return (
                 <li className='comments-titles' key={`${item.story_id}-${item.story_id}`}>
                   {convertHtmlEntities(item.comment_text)}
@@ -60,7 +84,7 @@ export function Comments() {
                   <div className='comments-items'>
                     <p key={item.story_id}>{item.story_id} story Id |</p>
                     <p key={item.story_id}> {item.author} |</p>
-                    <p key={item.story_id}> {hoursDifference.toFixed(0)} hours ago |</p>
+                    <p key={item.story_id}> {currentTime.toFixed(0)} {dating} ago |</p>
 
                     <p key={item.story_id}>
                       <a href={item.story_url || '#'} target="_blank" rel="noopener noreferrer">

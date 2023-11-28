@@ -74,7 +74,7 @@ export function HomePage() {
                     <p>|</p>
                     <p key={item.id}> {item.author}</p>
                     <p>|</p>
-                    <p key={item.id}>{currentTime.toFixed(0)} hours ago</p>
+                    <p key={item.id}>{currentTime.toFixed(0)} {dating} ago</p>
                     <p>|</p>
                     <p>Hide </p>
                     <p>|</p>
