@@ -162,3 +162,7 @@ input{
   width: 150px;
   float: left;
 }
+.titleSearch{
+  color: white;
+  font-weight: 500;
+}

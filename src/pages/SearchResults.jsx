@@ -8,7 +8,7 @@ export default function SearchResults() {
   
     return (
       <div>
-        <h2 className='title-container'>Search Results</h2>
+        <h2 style={{color:'green', fontSize: "50px"}}className='title-container'>Search Results</h2>
         <div className='article-container'>
           {searchResults && searchResults.hits && (
             <ol className='list-container'>
@@ -20,7 +20,7 @@ export default function SearchResults() {
                 const hoursDifference = timeDifference / (1000*60*60)
                 console.log(hoursDifference)
                 return (
-                  <li key={hit.id}>
+                  <li className="titleSearch" key={hit.id}>
                  {hit.title}
                   <div className='list-items'>
                    <p>{hit.points} points </p>
