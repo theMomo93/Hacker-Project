@@ -129,10 +129,10 @@ li{
 p{
   font-size: 11px;
 }
-.homePage-titles, .comments-titles{
+.homePage-titles, .comments-titles, .search-title{
   color: white;
 }
-.homePage-titles:hover{
+.homePage-titles:hover, .search-title:hover{
   color: green;
   cursor: pointer;
 }

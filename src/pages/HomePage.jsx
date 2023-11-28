@@ -38,7 +38,32 @@ export function HomePage() {
               const currentDate = new Date();
               const timeDifference = currentDate - createdAtDate;
               const hoursDifference = timeDifference / (1000 * 60 * 60);
-              console.log(createdAtDate)
+              
+              let currentTime
+              let dating
+              if( hoursDifference < 1 ){
+                  currentTime = hoursDifference
+                  dating = "Hour"
+              }
+              else if( hoursDifference <= 24 && hoursDifference > 1){
+                  currentTime = hoursDifference
+                  dating = "Hours" // this define hours
+              }
+              else if (hoursDifference < 168){
+                  currentTime = hoursDifference / 24 // this defines days
+                  dating = "Days"
+              }
+              else if(hoursDifference >= 168  && hoursDifference < 730 ){
+                 currentTime = hoursDifference / 168 // this defines weeks
+                  dating = "Weeks"
+              } else if ( hoursDifference > 730 && hoursDifference < 8760){
+                  currentTime = hoursDifference / 730 // this defines months
+                  dating = "Months"
+              }
+              else if (hoursDifference >= 8760 ){ // this defines years
+                  currentTime = hoursDifference / 8760;
+                  dating = "Years"
+              }
               return (
                 <li key={item.id}>
                   <a className='homePage-titles' href={item._highlightResult?.url?.value || '#'} target="_blank" rel="noopener noreferrer">
@@ -49,7 +74,7 @@ export function HomePage() {
                     <p>|</p>
                     <p key={item.id}> {item.author}</p>
                     <p>|</p>
-                    <p key={item.id}>{hoursDifference.toFixed(0)} hours ago</p>
+                    <p key={item.id}>{currentTime.toFixed(0)} hours ago</p>
                     <p>|</p>
                     <p>Hide </p>
                     <p>|</p>
