@@ -15,7 +15,7 @@ export function SearchBar() {
       const data = await response.json();
       setSearchResults(data);
 
-      navigate('/search-results', {state:{searchResults: data}});
+      navigate('/SearchResults', {state:{searchResults: data}});
     } catch (error) {
       console.log('Error fetching data: ', error);
     }
