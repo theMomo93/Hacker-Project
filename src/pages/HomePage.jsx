@@ -38,7 +38,7 @@ export function HomePage() {
               const currentDate = new Date();
               const timeDifference = currentDate - createdAtDate;
               const hoursDifference = timeDifference / (1000 * 60 * 60);
-
+              console.log(createdAtDate)
               return (
                 <li key={item.id}>
                   <a className='homePage-titles' href={item._highlightResult?.url?.value || '#'} target="_blank" rel="noopener noreferrer">
