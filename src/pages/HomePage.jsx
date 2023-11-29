@@ -70,15 +70,15 @@ export function HomePage() {
                     {item.title}
                   </a>
                   <div className='list-items'>
-                    <p key={item.id}>{item.points} points </p>
+                    <p >{item.points} points </p>
                     <p>|</p>
-                    <p key={item.id}> {item.author}</p>
+                    <p > {item.author}</p>
                     <p>|</p>
-                    <p key={item.id}>{currentTime.toFixed(0)} {dating} ago</p>
+                    <p >{currentTime.toFixed(0)} {dating} ago</p>
                     <p>|</p>
                     <p>Hide </p>
                     <p>|</p>
-                    <p key={item.id}> {item.num_comments} Comments</p>
+                    <p > {item.num_comments} Comments</p>
                     <p>|</p>
                   </div>
                 </li>

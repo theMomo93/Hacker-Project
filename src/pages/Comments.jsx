@@ -48,7 +48,7 @@ export function Comments() {
         <div className='comments-container'>
           <ol className='list-comments-container'>
             {comments.map((item) => {
-              const createdAtDate = new Date(item.created_at);
+              const createdAtDate = new Date(item.updated_at);
               const currentDate = new Date();
               const timeDifference = currentDate - createdAtDate;
               const hoursDifference = timeDifference / (1000 * 60 * 60);
@@ -77,16 +77,18 @@ export function Comments() {
                   currentTime = hoursDifference / 8760;
                   dating = "Years"
               }
+              
               return (
-                <li className='comments-titles' key={`${item.story_id}-${item.story_id}`}>
+                <li className='comments-titles' key={item.story_id}>
                   {convertHtmlEntities(item.comment_text)}
 
                   <div className='comments-items'>
-                    <p key={item.story_id}>{item.story_id} story Id |</p>
-                    <p key={item.story_id}> {item.author} |</p>
-                    <p key={item.story_id}> {currentTime.toFixed(0)} {dating} ago |</p>
+                  <p >{item.story_id} story Id |</p>
+                  <p > {item.author} |</p>
+                  <p > {currentTime.toFixed(0)} {dating} ago |</p>
+                  
 
-                    <p key={item.story_id}>
+                    <p >
                       <a href={item.story_url || '#'} target="_blank" rel="noopener noreferrer">
                         {item.story_title}
                       </a>
