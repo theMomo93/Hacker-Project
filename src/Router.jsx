@@ -9,7 +9,9 @@ import SearchResults from './pages/SearchResults';
 import { Submit } from './pages/Submit';
 import { Past } from './pages/Past';
 import { Comments } from './pages/Comments';
-
+import { Ask } from './pages/Ask';
+import { Jobs } from './pages/Jobs';
+import { Show } from './pages/Show';
 
 function Router() {
  
@@ -23,6 +25,9 @@ function Router() {
         <Route path="/past" element={<Past/>}/>
         <Route path="/comments" element={<Comments/>}/>
         <Route path="SearchResults" element={<SearchResults/>}/>
+        <Route path="/ask" element={<Ask/>}/>
+        <Route path="/jobs" element={<Jobs/>}/>
+        <Route path="/show" element={<Show/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

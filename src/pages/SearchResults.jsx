@@ -8,7 +8,7 @@ export default function SearchResults() {
   
     return (
       <div>
-        <h2 style={{color:'green', fontSize: "50px"}}className='title-container'>Search Results</h2>
+        <h2 style={{color:'green', fontSize: "50px", textDecoration:"underline"}}className='title-container'>-Search Results for: {searchResults?.query}-</h2>
         <div className='article-container'>
           {searchResults && searchResults.hits && (
             <ol className='list-container'>
