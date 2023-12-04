@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export function Comments() {
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);   //for creating Load More button
+  const navigate = useNavigate();
+
 
   const convertHtmlEntities = (htmlString) => {
     const parser = new DOMParser();
@@ -35,6 +39,10 @@ export function Comments() {
 
     getData();
   }, [page]); // runs on change(click)
+
+  function handleClick(userName) {
+    navigate(`/userName?name=${encodeURIComponent(userName)}`);
+  }
 
   const handleLoadMore = () => { // that I had to google but set the page to page+1 so it doesnt repeat
     setPage((prevPage) => prevPage + 1);
@@ -84,7 +92,7 @@ export function Comments() {
 
                   <div className='comments-items'>
                   <p >{item.story_id} story Id |</p>
-                  <p > {item.author} |</p>
+                  <p onClick={() => handleClick(item.author)}> {item.author}</p>
                   <p > {currentTime.toFixed(0)} {dating} ago |</p>
                   
 

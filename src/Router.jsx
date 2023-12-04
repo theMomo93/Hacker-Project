@@ -12,6 +12,8 @@ import { Comments } from './pages/Comments';
 import { Ask } from './pages/Ask';
 import { Jobs } from './pages/Jobs';
 import { Show } from './pages/Show';
+import { UserName } from './pages/UserName';
+
 
 function Router() {
  
@@ -28,6 +30,7 @@ function Router() {
         <Route path="/ask" element={<Ask/>}/>
         <Route path="/jobs" element={<Jobs/>}/>
         <Route path="/show" element={<Show/>}/>
+        <Route path="/userName" element={<UserName/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

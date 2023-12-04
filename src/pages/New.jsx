@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 export function New() {
   const [current, setCurrent] = useState([]);
   const [loading, setLoading] = useState(true); // Add loading state
 const [page, setPage] =useState(0);
+const navigate = useNavigate();
+
 
   useEffect(() => {
     async function getData() {
@@ -20,6 +24,10 @@ const [page, setPage] =useState(0);
 
     getData();
   }, [page]); // Empty dependency array to run only once when the component mounts
+
+  function handleClick(userName) {
+    navigate(`/userName?name=${encodeURIComponent(userName)}`);
+  }
 
   const handleLoadMore = () => {
     setPage((prevPage)=>prevPage +1)
@@ -47,7 +55,7 @@ const [page, setPage] =useState(0);
                   <div className='list-items'>
                     <p >{item.points} points </p>
                     <p>|</p>
-                    <p > {item.author}</p>
+                    <p onClick={() => handleClick(item.author)}> {item.author}</p>
                     <p>|</p>
                     <p >{hoursDifference.toFixed(0)} hours ago</p>
                     <p>|</p>

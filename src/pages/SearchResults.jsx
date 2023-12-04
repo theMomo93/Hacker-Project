@@ -1,29 +1,23 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { SearchBar } from '../component/SearchBar';
 
 export default function SearchResults() {
   const { state } = useLocation();
   const searchResults = state && state.searchResults;
 
-  // Function to highlight occurrences of the search query in the title
-  const highlightSearchQuery = (title) => {
+  // Function to display the search query in the title without highlighting
+  const SearchQuery = (title) => {
     if (!searchResults || !searchResults.query) {
       return title;
     }
 
-    const query = searchResults.query.toLowerCase();
-    const regex = new RegExp(`(${query})`, 'gi');
-
-    return title.split(regex).map((part, index) => (
-      regex.test(part) ? <span key={index} style={{ backgroundColor: 'green' }}>{part}</span> : part
-    ));
+    return title;
   };
 
   return (
     <div>
-      <h2 style={{ color: 'green', fontSize: '50px', textDecoration: 'underline' }}>
-        -Search Results for: {searchResults?.query}-
+      <h2 style={{ color: 'green', fontSize: '50px' }}>
+        Search for: {searchResults?.query}
       </h2>
       <div className='article-container'>
         {searchResults && searchResults.hits && (
@@ -58,8 +52,8 @@ export default function SearchResults() {
 
               return (
                 <li className="titleSearch" key={hit.id}>
-                  <a className='search-title' href={hit._highlightResult?.url?.value || '#'} target='_blank' rel='noopener noreferrer'>
-                    {highlightSearchQuery(hit.title)}
+                  <a className='search-title' href={hit.Result?.url?.value || '#'} target='_blank' rel='noopener noreferrer'>
+                    {SearchQuery(hit.title)}
                   </a>
                   <div className='list-items'>
                     <p>{hit.points} points </p>

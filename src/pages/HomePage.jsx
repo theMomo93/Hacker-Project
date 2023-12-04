@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function HomePage() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
-
+  const navigate = useNavigate();
   useEffect(() => {
     async function getData() {
       try {
@@ -23,6 +24,11 @@ export function HomePage() {
   const handleLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
+
+  function handleClick(userName) {
+    navigate(`/userName?name=${encodeURIComponent(userName)}`);
+  }
+  
 
   return (
     <div>
@@ -69,10 +75,11 @@ export function HomePage() {
                   <a className='homePage-titles' href={item._highlightResult?.url?.value || '#'} target="_blank" rel="noopener noreferrer">
                     {item.title}
                   </a>
+                  
                   <div className='list-items'>
                     <p >{item.points} points </p>
                     <p>|</p>
-                    <p > {item.author}</p>
+                    <p onClick={() => handleClick(item.author)}> {item.author}</p>
                     <p>|</p>
                     <p >{currentTime.toFixed(0)} {dating} ago</p>
                     <p>|</p>

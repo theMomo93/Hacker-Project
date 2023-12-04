@@ -18,12 +18,14 @@ export function Footer() {
         <a href= "https://www.ycombinator.com/legal/">Legal |</a>
         <a href= "https://www.ycombinator.com/apply/">Apply to YC |</a>
         <a href= "">Contact</a> 
+        
         </div>
         <div className='searchBar-footer'>
 
         </div>
-       
+       <br />
     </div>
+    <br />
     </div>
   )
 }

@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 export function Past() {
   const [past, setPast] = useState(null);
   const [start, setStart] = useState("");
   const [loading, setLoading] = useState(false);
   const [buttonClicked, setButtonClicked] = useState(false);
+  const navigate = useNavigate();
+
 
   const getData = async () => {
     setLoading(true);
@@ -24,6 +28,10 @@ export function Past() {
       setLoading(false);
     }
   };
+
+  function handleClick(userName) {
+    navigate(`/userName?name=${encodeURIComponent(userName)}`);
+  }
 
   const handleSearch = () => {
     if (start) {
@@ -79,15 +87,15 @@ export function Past() {
                               <span>{item.title}</span>
                             )}
                             <div className="past-items">
-                              <p key={item.objectID}>{item.points} points </p>
+                              <p >{item.points} points </p>
                               <p>|</p>
-                              <p key={item.objectID}> {item.author}</p>
+                              <p onClick={() => handleClick(item.author)}> {item.author}</p>
                               <p>|</p>
-                              <p key={item.objectID}>{hoursDifference.toFixed(0)} hours ago</p>
+                              <p >{hoursDifference.toFixed(0)} hours ago</p>
                               <p>|</p>
                               <p>Hide </p>
                               <p>|</p>
-                              <p key={item.objectID}> {item.num_comments} Comments</p>
+                              <p > {item.num_comments} Comments</p>
                               <p>|</p>
                             </div>
                           </li>

@@ -18,6 +18,7 @@ export function Navbar() {
         </div>
         
         <SearchBar/>
+        <NavLink className={({ isActive }) => (isActive ? 'darkgreen' : 'white')}to="/submit"><span className='login'>Login</span> </NavLink>
     </div>
   )
 }
