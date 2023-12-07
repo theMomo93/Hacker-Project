@@ -1,8 +1,11 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function SearchResults() {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const searchResults = state && state.searchResults;
 
   // Function to display the search query in the title without highlighting
@@ -13,6 +16,10 @@ export default function SearchResults() {
 
     return title;
   };
+
+  function handleClick(userName) {
+    navigate(`/userName?name=${encodeURIComponent(userName)}`);
+  }
 
   return (
     <div>
@@ -58,7 +65,7 @@ export default function SearchResults() {
                   <div className='list-items'>
                     <p>{hit.points} points </p>
                     <p>|</p>
-                    <p>{hit.author}</p>
+                    <p onClick={() => handleClick(hit.author)}> {hit.author}</p>
                     <p>|</p>
                     <p>{currentTime.toFixed(0)} {dating} ago</p>
                     <p>|</p>
