@@ -5,7 +5,7 @@ export function Jobs() {
 
     <div >
         <h3>You have to be logged in to access Jobs</h3>
-        <div className='login'>
+        <div className='login-page'>
         <h2>Login</h2>
         
         <label for="username">username </label>
